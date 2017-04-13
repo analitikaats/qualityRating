@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link href="js/devextreme/css/dx.common.css" rel="stylesheet" />
+    <link href="js/devextreme/css/dx.light.css" rel="stylesheet" />
+    <link rel="stylesheet" href="js/mediaelement/css/progression-skin.css" type="text/css">
+    <link rel="stylesheet" href="js/mediaelement/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="js/mediaelement/css/skin-fancy.css" /><!-- Fancy Skin -->
+
+    <script>
+        delete window.$;
+        delete ko;
+    </script>
+    <script src="js/devextreme/js/jquery-2.2.3.min.js"></script>
+    <script src="js/devextreme/js/knockout-min.js"></script>
+    <script src="js/devextreme/js/jszip.min.js"></script>
+    <script src="js/devextreme/js/cldr.min.js"></script>
+    <script src="js/devextreme/js/cldr/event.min.js"></script>
+    <script src="js/devextreme/js/cldr/supplemental.min.js"></script>
+    <script src="js/devextreme/js/globalize.min.js"></script>
+    <script src="js/devextreme/js/globalize/message.min.js"></script>
+    <script src="js/devextreme/js/globalize/number.min.js"></script>
+    <script src="js/devextreme/js/globalize/currency.min.js"></script>
+    <script src="js/devextreme/js/globalize/date.min.js"></script>
+    <script>
+        delete window.DevExpress;
+    </script>
+    <script src="js/devextreme/js/dx.all.js"></script>
+    <script src="js/devextreme/js/localization/dx.all.ru.js"></script>
+    <script src="js/mediaelement/mediaelement-and-player.min.js"></script>
+    <script src="js/qualityRating.js"></script>
+
+    <style>
+        body {
+            padding: 0 10px;
+            background-color: rgb(252, 252, 252);
+        }
+
+        .header {
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .header-table {
+            font-size: 16px;
+            font-family: 'Helvetica Neue','Segoe UI',Helvetica,Verdana,sans-serif;
+            font-weight: 400;
+            fill: #43474b;
+            cursor: default;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #page {
+            min-width: 900px;
+            max-width: 1055px;
+            margin: 0 auto;
+        }
+
+        #gridSiteCalls {
+            font-size: 14px;
+            font-family: 'Helvetica Neue','Segoe UI',Helvetica,Verdana,sans-serif;
+        }
+
+        .dx-datagrid-content .dx-datagrid-table .dx-row > td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .container {
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .graphic {
+            min-height: 400px;
+            position: relative;
+            padding: 10px 10px 10px 10px;
+            border-radius: 0px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.1);
+        }
+
+        .left {
+            float: left;
+            width: 49%;
+        }
+
+        .right {
+            float: right;
+            width: 49%;
+        }
+
+        .save {
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACg0lEQVR4nGJgoBAAAAAA//9iZGBgYPD18/8vLS3N8OvXL4b///4R1MTOwcHw4cMHhhXLlzECAAAA//9iYWBgYGBmZmZQUVZiYGZmZkhOTmb4/fs3Ts27du1iuHPnDsM/qEUAAAAA//90zDERADAMA7EfOntL+GNLCZhAfEVQAdABSIIkupsk7O43qCpsM3MBeAAAAP//dMwhEgAwDMMw//+vCTTsxsrKddpg5tEWFfUMkqwH+AAAAP//QjLgL8Pr1x8Yvnz5wvD+/XucBrx7947h79+/DP/+Q7wAAAAA//9CMuAfw5s3bxi+ffvGwMTEhNOAjx8/MrCzs8PDAAAAAP//YmFgYGD4DzXg9evXDPPmzcOpmYGBgeHLly8M2tra8NgCAAAA//+Cu+Dv378MP378YPjz5w9eA2AA5gUAAAAA//9C8cL79+8Z/v79y/D9+3ecGtnY2BgMDQ3hXgAAAAD//2TRQRUAIAhEwV+KkhqBPjSREIs8vXizwsxnIAl3JyIAMDOqNlVijEnmors5b+ECAAD//0LyAiQM/v79y2BsbMzg6urKwMDAwHDr1m2GHz9/Mvz48YPh9+9fDB8/foRYCPUCAAAA//8k0rENwCAMRcGn7OX9JyEGCiDyL8FKwQTX3AOwzyEzMTMigjEmkpBEbR33SnmdtT4kXXDfbD8AAAD//wTB0QmAMAxAwReQQL7VOTqEukwdQlyqjlLXqD8VDMS7AeCu9TSzY1sXUkqoKqVcRATzNOLufO7kPfO0hojQ+wvADwAA//9ihAWOgIBAhaSkZCMTEzPb338IP6IDZhZmBkYGRoa///4y3Lh+nREAAAD//yIqyvABAAAAAP//AwB7eSYvmBihtwAAAABJRU5ErkJggg==");
+        }
+
+        .play {
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9kBEBA1K4Y3Ae4AAALOSURBVDjLhZNfaFN3FMc/9/Ymubmp7e2aiTVKizqFjRa10jhKhA2GgtTSIMyH4mCPJoLblCL44h9QcawVnUxwPql0a1YxIPosrUqrMkExbYa2uNUl6JJrzM3v5ib3+rCliNh53s73+z1fDl/OkVigYrEY2WzW/19bGhkZeadOXsggk8kEu7q6XjQ2Nj53Xbelhl/Oo73XoLe392PXdW/H43G1o6ND8fl8Uo0rO+w6/JRLX02z6J0G0Wh0cyQSGR8cHFzh9Xqpr69HVdV5/ssP+D5f4dxLm4tr7yApNWJ0dJREIhHr6+sbikajSjqddqvVKrIs4/f/G8WFF2x7+IpVR1v54bP7bLIcosq1Q8t66gPq/vKfQ954/FhnOBxGCMHk5CQtLS2ubdvzGxQtknOC8xvu0m1W+bFU5YziXf7Fb939xz2gOEXhYWpqCtM0mZmZIZfLIYTA5/NxYo7Bi1lOLlI48qrCgVSYr5eMoyv5Uh3G7b043pCTbdgpT0xMYNs2s7OzZLNZhBCoqsp0keGczZ4ba9nTdosQgO3gKPnCSyp//0qp7iM3NddFPp/Htm1M08SyLFeSJP6v5EIlh74GtOWWUygUaGpqQtd1NE1D13VUVUUIweoAO5o8DG19wApV5i8Aj4ysPHri3f7tmS37JdnvWbkm19nW1ka5XEbTNILBIH6/HyEE+5byzdk5uFngfEbh5/A9PsxY5OWz564mT/10/dNQ68YNY2Nju1OpVKW5uZlAIICiKK7jOFiWBUDAx7alKg/udDKu1RHz1zE8fwcDAwMApy3L+sMwjOFgMNhgGAamaVIqlQDobyYJ8N0TPn9ssi5nc1B5O5RkMnm9Wq12y7J8JRKJtBaLRYQQ8/wv/7B3usj6Bg/9v3+Cu2DEPT09wfb29plMJiMZhrEqkUg8qz1Tn45Z0ykLGYRCoefpdHoxgCRJpRr+5jDAa/FTK8sfZmcpAAAAAElFTkSuQmCC");
+        }
+
+        .rec-actions {
+            height: 16px;
+            display: inline-flex;
+        }
+
+        .action {
+            margin: 0 2px;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+
+    <script>
+        var dataZip = "";
+    </script>
+</head>
+<body class="dx-viewport" style="background-color: rgb(252, 252, 252);">
+    <div id="ratingData" style="display:none;"></div>
+    <div id="page">
+        <div class="header">Оценка качества звонка от клиента</div>
+        <div class="container">
+            <div class="graphic">
+                <div class="header-table">Сводная таблица оценок качества звонка</div>
+                <div id="gridQualityRating" data-bind="dxDataGrid: gridQualityRatingOptions"></div>
+                <div class="responsive-wrapper responsive-audio" style="max-width: 100%;">
+                    <audio id="player" class="progression-single progression-skin progression-fancy progression-audio-player" src="empty.mp3" controls autoplay></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

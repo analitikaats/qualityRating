@@ -29,14 +29,14 @@ $(function() {
     });
 
     $.when(
-        $.getJSON("js/devextreme/js/unicode-cldr/ca-gregorian.json"),
-        $.getJSON("js/devextreme/js/unicode-cldr/numbers.json"),
-        $.getJSON("js/devextreme/js/unicode-cldr/currencies.json"),
-        $.getJSON("js/devextreme/js/unicode-cldr/likelySubtags.json"),
-        $.getJSON("js/devextreme/js/unicode-cldr/timeData.json"),
-        $.getJSON("js/devextreme/js/unicode-cldr/weekData.json"),
-        $.getJSON("js/devextreme/js/unicode-cldr/currencyData.json"),
-        $.getJSON("js/devextreme/js/unicode-cldr/numberingSystems.json")
+        $.getJSON($("base")[0].href + "devextreme/js/unicode-cldr/ca-gregorian.json"),
+        $.getJSON($("base")[0].href + "devextreme/js/unicode-cldr/numbers.json"),
+        $.getJSON($("base")[0].href + "devextreme/js/unicode-cldr/currencies.json"),
+        $.getJSON($("base")[0].href + "devextreme/js/unicode-cldr/likelySubtags.json"),
+        $.getJSON($("base")[0].href + "devextreme/js/unicode-cldr/timeData.json"),
+        $.getJSON($("base")[0].href + "devextreme/js/unicode-cldr/weekData.json"),
+        $.getJSON($("base")[0].href + "devextreme/js/unicode-cldr/currencyData.json"),
+        $.getJSON($("base")[0].href + "devextreme/js/unicode-cldr/numberingSystems.json")
     ).then(function() {
         return [].slice.apply(arguments, [0]).map(function(result) {
             return result[0];
